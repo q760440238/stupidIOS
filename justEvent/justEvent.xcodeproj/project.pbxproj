@@ -161,11 +161,11 @@
 		8669478223A0F404008A503C /* SDAutoLayout */ = {
 			isa = PBXGroup;
 			children = (
-				8669478323A0F404008A503C /* UIView+SDAutoLayout.m */,
-				8669478423A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.h */,
 				8669478523A0F404008A503C /* SDAutoLayout.h */,
+				8669478423A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.h */,
 				8669478623A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m */,
 				8669478723A0F404008A503C /* UIView+SDAutoLayout.h */,
+				8669478323A0F404008A503C /* UIView+SDAutoLayout.m */,
 			);
 			path = SDAutoLayout;
 			sourceTree = "<group>";
