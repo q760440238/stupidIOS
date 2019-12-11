@@ -1,5 +1,6 @@
 # stupidIOS
 一天可以画完一整个ios appui的库
+
 建议在iphone6 or 7模拟器上跑，因为适配的是750*1334
 
 NSString* thepath = @"/Users/xmmac/Desktop/oldcode";
