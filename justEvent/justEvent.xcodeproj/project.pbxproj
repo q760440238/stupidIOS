@@ -15,10 +15,10 @@
 		8669474D239F6A4B008A503C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8669474C239F6A4B008A503C /* main.m */; };
 		86694757239F6A4B008A503C /* justEventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86694756239F6A4B008A503C /* justEventTests.m */; };
 		86694762239F6A4B008A503C /* justEventUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86694761239F6A4B008A503C /* justEventUITests.m */; };
-		86694777239FA45E008A503C /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 86694773239FA45E008A503C /* UITableView+SDAutoTableViewCellHeight.m */; };
-		86694778239FA45E008A503C /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 86694775239FA45E008A503C /* UIView+SDAutoLayout.m */; };
 		8669477B23A0927F008A503C /* SelectCreateUIVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8669477A23A0927F008A503C /* SelectCreateUIVC.m */; };
 		8669478123A09735008A503C /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8669477F23A09735008A503C /* UIColor+HexColor.m */; };
+		8669478823A0F404008A503C /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8669478323A0F404008A503C /* UIView+SDAutoLayout.m */; };
+		8669478923A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8669478623A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,15 +55,15 @@
 		8669475D239F6A4B008A503C /* justEventUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = justEventUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86694761239F6A4B008A503C /* justEventUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = justEventUITests.m; sourceTree = "<group>"; };
 		86694763239F6A4B008A503C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		86694772239FA45E008A503C /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDAutoLayout.h; path = SDAutoLayout/SDAutoLayout.h; sourceTree = SOURCE_ROOT; };
-		86694773239FA45E008A503C /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+SDAutoTableViewCellHeight.m"; path = "SDAutoLayout/UITableView+SDAutoTableViewCellHeight.m"; sourceTree = SOURCE_ROOT; };
-		86694774239FA45E008A503C /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+SDAutoLayout.h"; path = "SDAutoLayout/UIView+SDAutoLayout.h"; sourceTree = SOURCE_ROOT; };
-		86694775239FA45E008A503C /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+SDAutoLayout.m"; path = "SDAutoLayout/UIView+SDAutoLayout.m"; sourceTree = SOURCE_ROOT; };
-		86694776239FA45E008A503C /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+SDAutoTableViewCellHeight.h"; path = "SDAutoLayout/UITableView+SDAutoTableViewCellHeight.h"; sourceTree = SOURCE_ROOT; };
 		8669477923A0927F008A503C /* SelectCreateUIVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectCreateUIVC.h; sourceTree = "<group>"; };
 		8669477A23A0927F008A503C /* SelectCreateUIVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectCreateUIVC.m; sourceTree = "<group>"; };
 		8669477F23A09735008A503C /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 		8669478023A09735008A503C /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		8669478323A0F404008A503C /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		8669478423A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		8669478523A0F404008A503C /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
+		8669478623A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		8669478723A0F404008A503C /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 		8669472E239F6A49008A503C = {
 			isa = PBXGroup;
 			children = (
-				86694771239FA446008A503C /* SD */,
+				8669478223A0F404008A503C /* SDAutoLayout */,
 				86694739239F6A49008A503C /* justEvent */,
 				86694755239F6A4B008A503C /* justEventTests */,
 				86694760239F6A4B008A503C /* justEventUITests */,
@@ -149,18 +149,6 @@
 			path = justEventUITests;
 			sourceTree = "<group>";
 		};
-		86694771239FA446008A503C /* SD */ = {
-			isa = PBXGroup;
-			children = (
-				86694772239FA45E008A503C /* SDAutoLayout.h */,
-				86694776239FA45E008A503C /* UITableView+SDAutoTableViewCellHeight.h */,
-				86694773239FA45E008A503C /* UITableView+SDAutoTableViewCellHeight.m */,
-				86694774239FA45E008A503C /* UIView+SDAutoLayout.h */,
-				86694775239FA45E008A503C /* UIView+SDAutoLayout.m */,
-			);
-			path = SD;
-			sourceTree = "<group>";
-		};
 		8669477E23A09735008A503C /* HexColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +156,18 @@
 				8669477F23A09735008A503C /* UIColor+HexColor.m */,
 			);
 			path = HexColor;
+			sourceTree = "<group>";
+		};
+		8669478223A0F404008A503C /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				8669478323A0F404008A503C /* UIView+SDAutoLayout.m */,
+				8669478423A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.h */,
+				8669478523A0F404008A503C /* SDAutoLayout.h */,
+				8669478623A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m */,
+				8669478723A0F404008A503C /* UIView+SDAutoLayout.h */,
+			);
+			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,13 +300,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8669478923A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				8669478123A09735008A503C /* UIColor+HexColor.m in Sources */,
 				8669477B23A0927F008A503C /* SelectCreateUIVC.m in Sources */,
+				8669478823A0F404008A503C /* UIView+SDAutoLayout.m in Sources */,
 				86694742239F6A4A008A503C /* ViewController.m in Sources */,
 				8669473C239F6A4A008A503C /* AppDelegate.m in Sources */,
-				86694777239FA45E008A503C /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				8669474D239F6A4B008A503C /* main.m in Sources */,
-				86694778239FA45E008A503C /* UIView+SDAutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
