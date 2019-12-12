@@ -30,7 +30,7 @@
 
 @interface ViewController ()<UIGestureRecognizerDelegate,UITextFieldDelegate>
 
-@property (nonatomic,strong) UIView *graphicsView;
+@property (nonatomic,strong) UIScrollView *graphicsView;
 
 @end
 
@@ -68,10 +68,19 @@
 }
 
 - (void)create_graphicsView {
-    _graphicsView = [[UIView alloc] initWithFrame:CGRectMake(0, 80, FULL_SCREEN_WIDTH, 400)];
+    UIView *drawView = [[UIView alloc] initWithFrame:CGRectMake(0, 80, FULL_SCREEN_WIDTH, 400)];
+    drawView.backgroundColor = [UIColor whiteColor];
+    drawView.layer.borderWidth = 1.0f;
+    drawView.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
+    [self.view addSubview:drawView];
+    
+    _graphicsView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, FULL_SCREEN_WIDTH, 400)];
     _graphicsView.layer.borderWidth = 1.0f;
-    _graphicsView.layer.borderColor = [UIColor blackColor].CGColor;
-    [self.view addSubview:_graphicsView];
+    _graphicsView.layer.borderColor = [UIColor blueColor].CGColor;
+    _graphicsView.bounces = NO;
+    [drawView addSubview:_graphicsView];
+    _graphicsView.scrollEnabled = YES;
+    _graphicsView.contentSize = CGSizeMake(FULL_SCREEN_WIDTH, 400);
     
     UITextField *widthfield = [[UITextField alloc] initWithFrame:CGRectMake(0, 28, 100, 40)];
     widthfield.text = [NSString stringWithFormat:@"%.0f",_graphicsView.width];
@@ -105,9 +114,16 @@
     NSLog(@"文字改变：%@",textChange.text);
     if (textChange.tag == UITEXTFIELD_TAG) {
         _graphicsView.width = textChange.text.floatValue;
+        _graphicsView.contentSize = CGSizeMake(_graphicsView.width, _graphicsView.contentSize.height);
     }
     if (textChange.tag == UITEXTFIELD_TAG+1) {
-        _graphicsView.height = textChange.text.floatValue;
+        if (textChange.text.floatValue>400) {
+            _graphicsView.height = 400.0f;
+            _graphicsView.contentSize = CGSizeMake(_graphicsView.width, textChange.text.floatValue);
+        }else{
+            _graphicsView.height = textChange.text.floatValue;
+            _graphicsView.contentSize = CGSizeMake(_graphicsView.width, _graphicsView.contentSize.height);
+        }
     }
     
 }
