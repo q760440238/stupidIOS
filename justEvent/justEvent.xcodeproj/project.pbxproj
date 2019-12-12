@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8614117123A1EDC500969F77 /* DoraemonViewAlignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8614117023A1EDC500969F77 /* DoraemonViewAlignView.m */; };
+		8614117B23A1F67900969F77 /* DoraemonVisualInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8614117823A1F67900969F77 /* DoraemonVisualInfoWindow.m */; };
+		8614117C23A1F67900969F77 /* DoraemonVisualMagnifierWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8614117923A1F67900969F77 /* DoraemonVisualMagnifierWindow.m */; };
+		8614117F23A1F94400969F77 /* DoraemonViewAlignManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8614117E23A1F94300969F77 /* DoraemonViewAlignManager.m */; };
 		8669473C239F6A4A008A503C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8669473B239F6A4A008A503C /* AppDelegate.m */; };
 		86694742239F6A4A008A503C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86694741239F6A4A008A503C /* ViewController.m */; };
 		86694745239F6A4A008A503C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86694743239F6A4A008A503C /* Main.storyboard */; };
@@ -39,6 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8614116F23A1EDC500969F77 /* DoraemonViewAlignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoraemonViewAlignView.h; sourceTree = SOURCE_ROOT; };
+		8614117023A1EDC500969F77 /* DoraemonViewAlignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoraemonViewAlignView.m; sourceTree = SOURCE_ROOT; };
+		8614117323A1F63A00969F77 /* DoraemonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoraemonDefine.h; sourceTree = "<group>"; };
+		8614117723A1F67900969F77 /* DoraemonVisualMagnifierWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoraemonVisualMagnifierWindow.h; sourceTree = "<group>"; };
+		8614117823A1F67900969F77 /* DoraemonVisualInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoraemonVisualInfoWindow.m; sourceTree = "<group>"; };
+		8614117923A1F67900969F77 /* DoraemonVisualMagnifierWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoraemonVisualMagnifierWindow.m; sourceTree = "<group>"; };
+		8614117A23A1F67900969F77 /* DoraemonVisualInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoraemonVisualInfoWindow.h; sourceTree = "<group>"; };
+		8614117D23A1F94300969F77 /* DoraemonViewAlignManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoraemonViewAlignManager.h; sourceTree = SOURCE_ROOT; };
+		8614117E23A1F94300969F77 /* DoraemonViewAlignManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoraemonViewAlignManager.m; sourceTree = SOURCE_ROOT; };
 		86694737239F6A49008A503C /* justEvent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = justEvent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8669473A239F6A4A008A503C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8669473B239F6A4A008A503C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -91,9 +104,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8614117623A1F67900969F77 /* Visual */ = {
+			isa = PBXGroup;
+			children = (
+				8614117A23A1F67900969F77 /* DoraemonVisualInfoWindow.h */,
+				8614117823A1F67900969F77 /* DoraemonVisualInfoWindow.m */,
+				8614117723A1F67900969F77 /* DoraemonVisualMagnifierWindow.h */,
+				8614117923A1F67900969F77 /* DoraemonVisualMagnifierWindow.m */,
+			);
+			path = Visual;
+			sourceTree = "<group>";
+		};
 		8669472E239F6A49008A503C = {
 			isa = PBXGroup;
 			children = (
+				8614117623A1F67900969F77 /* Visual */,
+				8614117323A1F63A00969F77 /* DoraemonDefine.h */,
 				8669478223A0F404008A503C /* SDAutoLayout */,
 				86694739239F6A49008A503C /* justEvent */,
 				86694755239F6A4B008A503C /* justEventTests */,
@@ -115,6 +141,10 @@
 		86694739239F6A49008A503C /* justEvent */ = {
 			isa = PBXGroup;
 			children = (
+				8614117D23A1F94300969F77 /* DoraemonViewAlignManager.h */,
+				8614117E23A1F94300969F77 /* DoraemonViewAlignManager.m */,
+				8614116F23A1EDC500969F77 /* DoraemonViewAlignView.h */,
+				8614117023A1EDC500969F77 /* DoraemonViewAlignView.m */,
 				8669477E23A09735008A503C /* HexColor */,
 				8669473A239F6A4A008A503C /* AppDelegate.h */,
 				8669473B239F6A4A008A503C /* AppDelegate.m */,
@@ -300,10 +330,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8614117123A1EDC500969F77 /* DoraemonViewAlignView.m in Sources */,
+				8614117B23A1F67900969F77 /* DoraemonVisualInfoWindow.m in Sources */,
 				8669478923A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				8669478123A09735008A503C /* UIColor+HexColor.m in Sources */,
 				8669477B23A0927F008A503C /* SelectCreateUIVC.m in Sources */,
+				8614117C23A1F67900969F77 /* DoraemonVisualMagnifierWindow.m in Sources */,
 				8669478823A0F404008A503C /* UIView+SDAutoLayout.m in Sources */,
+				8614117F23A1F94400969F77 /* DoraemonViewAlignManager.m in Sources */,
 				86694742239F6A4A008A503C /* ViewController.m in Sources */,
 				8669473C239F6A4A008A503C /* AppDelegate.m in Sources */,
 				8669474D239F6A4B008A503C /* main.m in Sources */,

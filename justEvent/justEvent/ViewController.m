@@ -26,6 +26,7 @@
 
 #import "ViewController.h"
 #import "SDAutoLayout.h"
+#import "DoraemonViewAlignManager.h"
 
 @interface ViewController ()<UIGestureRecognizerDelegate,UITextFieldDelegate>
 
@@ -37,6 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[DoraemonViewAlignManager shareInstance] show];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     UIButton *backbtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 28, 48, 25)];

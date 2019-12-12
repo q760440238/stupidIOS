@@ -28,7 +28,7 @@
 @interface SelectCreateUIVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSArray *arr;
+@property (nonatomic,copy) NSArray *arr;
 
 @end
 
