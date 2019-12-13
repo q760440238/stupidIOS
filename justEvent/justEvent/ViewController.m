@@ -23,6 +23,7 @@
 
 #define UIBUTTON_TAG 0x5521
 #define UITEXTFIELD_TAG 0x66659
+#define UITEXTFIELD_FRAME_TAG 0xaac542
 
 #import "ViewController.h"
 #import "SDAutoLayout.h"
@@ -31,6 +32,12 @@
 @interface ViewController ()<UIGestureRecognizerDelegate,UITextFieldDelegate>
 
 @property (nonatomic,strong) UIScrollView *graphicsView;
+@property (nonatomic,strong) UILabel *thisLabel;
+@property (nonatomic,strong) UIImageView *thisImg;
+@property (nonatomic,strong) UIButton *thisBtn;
+@property (nonatomic,strong) UIView *thisView;
+@property (nonatomic,strong) UITextField *thisfield;
+@property (nonatomic,strong) NSString *type;
 
 @end
 
@@ -91,6 +98,7 @@
     widthfield.textAlignment = NSTextAlignmentCenter;
     widthfield.tag = UITEXTFIELD_TAG;
     widthfield.delegate = self;
+    widthfield.keyboardType = UIKeyboardTypeDecimalPad;
     [widthfield addTarget:self action:@selector(textFieldTextDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:widthfield];
     widthfield.right = FULL_SCREEN_WIDTH/2;
@@ -104,6 +112,7 @@
     heightfield.textAlignment = NSTextAlignmentCenter;
     heightfield.tag = UITEXTFIELD_TAG+1;
     heightfield.delegate = self;
+    heightfield.keyboardType = UIKeyboardTypeDecimalPad;
     [heightfield addTarget:self action:@selector(textFieldTextDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:heightfield];
     heightfield.left = FULL_SCREEN_WIDTH/2;
@@ -187,6 +196,29 @@
         btn.tag = UIBUTTON_TAG+i;
         [self.view addSubview:btn];
     }
+    NSArray *frameArr = @[@"x",@"y",@"width",@"height"];
+    for (int k = 0; k<frameArr.count; k++) {
+        UITextField *framefield = [[UITextField alloc] initWithFrame:CGRectMake(k*80, 0, 80, 30)];
+        framefield.placeholder = frameArr[k];
+        framefield.font = [UIFont systemFontOfSize:13];
+        framefield.textColor = [UIColor blackColor];
+        framefield.layer.borderColor = [UIColor grayColor].CGColor;
+        framefield.layer.borderWidth = 1;
+        framefield.bottom = FULL_SCREEN_HEIGHT-70;
+        framefield.tag = UITEXTFIELD_FRAME_TAG+k;
+        framefield.textAlignment = NSTextAlignmentCenter;
+        framefield.delegate = self;
+        framefield.keyboardType = UIKeyboardTypeDecimalPad;
+        [framefield addTarget:self action:@selector(textFrameChange:) forControlEvents:UIControlEventEditingChanged];
+        [self.view addSubview:framefield];
+    }
+}
+
+//监听改变方法
+- (void)textFrameChange:(UITextField *)textChange{
+    NSLog(@"文字改变：%@",textChange.text);
+    
+    
 }
 
 - (void)createMoveView:(UIButton *)btn {
@@ -214,6 +246,9 @@
     moveLB.textAlignment = NSTextAlignmentCenter;
     moveLB.userInteractionEnabled = YES;
     [_graphicsView addSubview:moveLB];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
+    [moveLB addGestureRecognizer:tap];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressAction:)];//初始化一个长按手势
     [longPress setMinimumPressDuration:1];//设置按多久之后触发事件
@@ -246,6 +281,9 @@
     moveImg.backgroundColor = [UIColor redColor];
     moveImg.userInteractionEnabled = YES;
     [_graphicsView addSubview:moveImg];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
+    [moveImg addGestureRecognizer:tap];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressAction:)];//初始化一个长按手势
     [longPress setMinimumPressDuration:1];//设置按多久之后触发事件
@@ -282,6 +320,9 @@
     movebtn.layer.borderWidth = 2.0f;
     [_graphicsView addSubview:movebtn];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
+    [movebtn addGestureRecognizer:tap];
+    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressAction:)];//初始化一个长按手势
     [longPress setMinimumPressDuration:1];//设置按多久之后触发事件
     [movebtn addGestureRecognizer:longPress];//把长按手势添加给按钮
@@ -314,6 +355,9 @@
     moveView.layer.borderColor = [UIColor yellowColor].CGColor;
     moveView.layer.borderWidth = 2.0f;
     [_graphicsView addSubview:moveView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
+    [moveView addGestureRecognizer:tap];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressAction:)];//初始化一个长按手势
     [longPress setMinimumPressDuration:1];//设置按多久之后触发事件
@@ -348,6 +392,9 @@
     movefield.userInteractionEnabled = YES;
     [_graphicsView addSubview:movefield];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTap:)];
+    [movefield addGestureRecognizer:tap];
+    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressAction:)];//初始化一个长按手势
     [longPress setMinimumPressDuration:1];//设置按多久之后触发事件
     [movefield addGestureRecognizer:longPress];//把长按手势添加给按钮
@@ -380,7 +427,27 @@
     CGPoint translation = [touches translationInView:view.superview];
     [view setCenter:(CGPoint){view.center.x + translation.x, view.center.y  + translation.y}];
     [touches setTranslation:CGPointZero inView:view.superview];
-        
+    if ([touches.view isKindOfClass:[UILabel class]]) {
+        _type = @"1";
+        _thisLabel = (UILabel *)touches.view;
+        [self changeText];
+    }else if ([touches.view isKindOfClass:[UIImageView class]]) {
+        _type = @"2";
+        _thisImg = (UIImageView *)touches.view;
+        [self changeText];
+    }else if ([touches.view isKindOfClass:[UIButton class]]) {
+        _type = @"3";
+        _thisBtn = (UIButton *)touches.view;
+        [self changeText];
+    }else if ([touches.view isKindOfClass:[UITextField class]]) {
+        _type = @"4";
+        _thisfield = (UITextField *)touches.view;
+        [self changeText];
+    }else if([touches.view isKindOfClass:[UIView class]]) {
+        _type = @"5";
+        _thisView = (UIView *)touches.view;
+        [self changeText];
+    }
         
 //    }
 //
@@ -388,6 +455,131 @@
 //
 //    }
     
+}
+
+//事件处理方法参数一般有一个, 参数类型是事件源
+-(void)viewTap:(UITapGestureRecognizer *)tap
+{
+    
+    if ([tap.view isKindOfClass:[UILabel class]]) {
+        _type = @"1";
+        _thisLabel = (UILabel *)tap.view;
+        [self changeText];
+        return;
+    }
+    if ([tap.view isKindOfClass:[UIImageView class]]) {
+        _type = @"2";
+        _thisImg = (UIImageView *)tap.view;
+        [self changeText];
+        return;
+    }
+    if ([tap.view isKindOfClass:[UIButton class]]) {
+        _type = @"3";
+        _thisBtn = (UIButton *)tap.view;
+        [self changeText];
+        return;
+    }
+    if ([tap.view isKindOfClass:[UITextField class]]) {
+        _type = @"4";
+        _thisfield = (UITextField *)tap.view;
+        [self changeText];
+        return;
+    }
+    if ([tap.view isKindOfClass:[UIView class]]) {
+        _type = @"5";
+        _thisView = (UIView *)tap.view;
+        [self changeText];
+        return;
+    }
+    
+}
+
+- (void)changeText {
+    if (_type.intValue == 1) {
+        for (int i = 0; i<4; i++) {
+            UITextField *frameField = [self.view viewWithTag:UITEXTFIELD_FRAME_TAG+i];
+            if (i == 0) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisLabel.left];
+            }
+            if (i == 1) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisLabel.top];
+            }
+            if (i == 2) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisLabel.width];
+            }
+            if (i == 3) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisLabel.height];
+            }
+        }
+    }
+    if (_type.intValue == 2) {
+        for (int i = 0; i<4; i++) {
+            UITextField *frameField = [self.view viewWithTag:UITEXTFIELD_FRAME_TAG+i];
+            if (i == 0) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisImg.left];
+            }
+            if (i == 1) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisImg.top];
+            }
+            if (i == 2) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisImg.width];
+            }
+            if (i == 3) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisImg.height];
+            }
+        }
+    }
+    if (_type.intValue == 3) {
+        for (int i = 0; i<4; i++) {
+            UITextField *frameField = [self.view viewWithTag:UITEXTFIELD_FRAME_TAG+i];
+            if (i == 0) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisBtn.left];
+            }
+            if (i == 1) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisBtn.top];
+            }
+            if (i == 2) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisBtn.width];
+            }
+            if (i == 3) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisBtn.height];
+            }
+        }
+    }
+    if (_type.intValue == 4) {
+        for (int i = 0; i<4; i++) {
+            UITextField *frameField = [self.view viewWithTag:UITEXTFIELD_FRAME_TAG+i];
+            if (i == 0) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisfield.left];
+            }
+            if (i == 1) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisfield.top];
+            }
+            if (i == 2) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisfield.width];
+            }
+            if (i == 3) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisfield.height];
+            }
+        }
+    }
+    if (_type.intValue == 5) {
+        for (int i = 0; i<4; i++) {
+            UITextField *frameField = [self.view viewWithTag:UITEXTFIELD_FRAME_TAG+i];
+            if (i == 0) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisView.left];
+            }
+            if (i == 1) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisView.top];
+            }
+            if (i == 2) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisView.width];
+            }
+            if (i == 3) {
+                frameField.text = [NSString stringWithFormat:@"%.1f",_thisView.height];
+            }
+        }
+    }
 }
 
 - (void)pinchView:(UIPinchGestureRecognizer *)pinchGestureRecognizer
@@ -401,7 +593,36 @@
     if (pinchGestureRecognizer.state == UIGestureRecognizerStateBegan || pinchGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         view.transform = CGAffineTransformScale(view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
         
-        
+        if ([pinchGestureRecognizer.view.superview isKindOfClass:[UILabel class]]) {
+            _type = @"1";
+            _thisLabel = (UILabel *)pinchGestureRecognizer.view.superview;
+            [self changeText];
+            return;
+        }
+        if ([pinchGestureRecognizer.view.superview isKindOfClass:[UIImageView class]]) {
+            _type = @"2";
+            _thisImg = (UIImageView *)pinchGestureRecognizer.view.superview;
+            [self changeText];
+            return;
+        }
+        if ([pinchGestureRecognizer.view.superview isKindOfClass:[UIButton class]]) {
+            _type = @"3";
+            _thisBtn = (UIButton *)pinchGestureRecognizer.view.superview;
+            [self changeText];
+            return;
+        }
+        if ([pinchGestureRecognizer.view.superview isKindOfClass:[UITextField class]]) {
+            _type = @"4";
+            _thisfield = (UITextField *)pinchGestureRecognizer.view.superview;
+            [self changeText];
+            return;
+        }
+        if ([pinchGestureRecognizer.view.superview isKindOfClass:[UIView class]]) {
+            _type = @"5";
+            _thisView = (UIView *)pinchGestureRecognizer.view.superview;
+            [self changeText];
+            return;
+        }
     }
 
 }
@@ -410,14 +631,37 @@
     UIView *view = touches.view;
     if (touches.state == UIGestureRecognizerStateBegan || touches.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [touches translationInView:view.superview];
+        
         CGFloat width =  touches.view.superview.width;
         if (width+translation.x<G_GET_SCALE_LENTH(15) || touches.view.superview.right+translation.x>FULL_SCREEN_WIDTH) {
             return;
         }
         touches.view.superview.width+=translation.x;
-        
         touches.view.right = touches.view.superview.width;
         touches.view.bottom = touches.view.superview.height;
+        
+        if ([touches.view.superview isKindOfClass:[UILabel class]]) {
+            _type = @"1";
+            _thisLabel = (UILabel *)touches.view.superview;
+            [self changeText];
+        }else if ([touches.view.superview  isKindOfClass:[UIImageView class]]) {
+            _type = @"2";
+            _thisImg = (UIImageView *)touches.view.superview;
+            [self changeText];
+        }else if ([touches.view.superview  isKindOfClass:[UIButton class]]) {
+            _type = @"3";
+            _thisBtn = (UIButton *)touches.view.superview;
+            [self changeText];
+        }else if ([touches.view.superview  isKindOfClass:[UITextField class]]) {
+            _type = @"4";
+            _thisfield = (UITextField *)touches.view.superview;
+            [self changeText];
+        }else if([touches.view.superview  isKindOfClass:[UIView class]]) {
+            _type = @"5";
+            _thisView = (UIView *)touches.view.superview;
+            [self changeText];
+        }
+        
         CGFloat height =  touches.view.superview.height;
         if (height+translation.y<G_GET_SCALE_HEIGHT(15)|| touches.view.superview.bottom+translation.y>FULL_SCREEN_HEIGHT) {
             return;
@@ -430,6 +674,28 @@
         
         touches.view.right = touches.view.superview.width;
         touches.view.bottom = touches.view.superview.height;
+        
+        if ([touches.view.superview isKindOfClass:[UILabel class]]) {
+            _type = @"1";
+            _thisLabel = (UILabel *)touches.view.superview;
+            [self changeText];
+        }else if ([touches.view.superview  isKindOfClass:[UIImageView class]]) {
+            _type = @"2";
+            _thisImg = (UIImageView *)touches.view.superview;
+            [self changeText];
+        }else if ([touches.view.superview  isKindOfClass:[UIButton class]]) {
+            _type = @"3";
+            _thisBtn = (UIButton *)touches.view.superview;
+            [self changeText];
+        }else if ([touches.view.superview  isKindOfClass:[UITextField class]]) {
+            _type = @"4";
+            _thisfield = (UITextField *)touches.view.superview;
+            [self changeText];
+        }else if([touches.view.superview  isKindOfClass:[UIView class]]) {
+            _type = @"5";
+            _thisView = (UIView *)touches.view.superview;
+            [self changeText];
+        }
         //            UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, _deptView.frame.size.width, _deptView.frame.size.height) cornerRadius:G_GET_SCALE_HEIGHT(2)];
         //            _deptlayer.path = bezierPath.CGPath;
     }
