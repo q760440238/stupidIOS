@@ -145,10 +145,10 @@
 - (void)print {
     NSString *uiStr = @"";
     for (UIView *view in _graphicsView.subviews) {
-        NSString *x = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.0f)",view.frame.origin.x];
-        NSString *y = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.0f)",view.frame.origin.y];
-        NSString *width = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.0f)",view.frame.size.width];
-        NSString *height = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.0f)",view.frame.size.height];
+        NSString *x = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.1f)",view.frame.origin.x];
+        NSString *y = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.1f)",view.frame.origin.y];
+        NSString *width = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.1f)",view.frame.size.width];
+        NSString *height = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.1f)",view.frame.size.height];
 //        NSLog(@"CGRectMake(%@,%@,%@,%@);",x,y,width,height);
         if ([view isKindOfClass:[UILabel class]]) {
             uiStr = [uiStr stringByAppendingString:[NSString stringWithFormat:@"\nUILabel *myLB =  [[UILabel alloc] initWithFrame:CGRectMake(%@,%@,%@,%@)];",x,y,width,height]];
