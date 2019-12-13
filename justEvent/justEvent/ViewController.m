@@ -144,6 +144,8 @@
 
 - (void)print {
     NSString *uiStr = @"";
+    _graphicsView.showsVerticalScrollIndicator = NO;
+    _graphicsView.showsHorizontalScrollIndicator = NO;
     for (UIView *view in _graphicsView.subviews) {
         NSString *x = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.1f)",view.frame.origin.x];
         NSString *y = [NSString stringWithFormat:@"G_GET_SCALE_LENTH(%.1f)",view.frame.origin.y];
