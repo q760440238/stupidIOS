@@ -217,8 +217,75 @@
 //监听改变方法
 - (void)textFrameChange:(UITextField *)textChange{
     NSLog(@"文字改变：%@",textChange.text);
-    
-    
+    long k = textChange.tag - UITEXTFIELD_FRAME_TAG;
+    if (k == 0) {
+        if (_type.intValue == 1) {
+            _thisLabel.left = textChange.text.floatValue;
+        }
+        if (_type.intValue == 2) {
+            _thisImg.left = textChange.text.floatValue;
+        }
+        if (_type.intValue == 3) {
+            _thisBtn.left = textChange.text.floatValue;
+        }
+        if (_type.intValue == 4) {
+            _thisView.left = textChange.text.floatValue;
+        }
+        if (_type.intValue == 5) {
+            _thisfield.left = textChange.text.floatValue;
+        }
+    }
+    if (k == 1) {
+        if (_type.intValue == 1) {
+            _thisLabel.top = textChange.text.floatValue;
+        }
+        if (_type.intValue == 2) {
+            _thisImg.top = textChange.text.floatValue;
+        }
+        if (_type.intValue == 3) {
+            _thisBtn.top = textChange.text.floatValue;
+        }
+        if (_type.intValue == 4) {
+            _thisView.top = textChange.text.floatValue;
+        }
+        if (_type.intValue == 5) {
+            _thisfield.top = textChange.text.floatValue;
+        }
+    }
+    if (k == 2) {
+        if (_type.intValue == 1) {
+            _thisLabel.width = textChange.text.floatValue;
+        }
+        if (_type.intValue == 2) {
+            _thisImg.width = textChange.text.floatValue;
+        }
+        if (_type.intValue == 3) {
+            _thisBtn.width = textChange.text.floatValue;
+        }
+        if (_type.intValue == 4) {
+            _thisView.width = textChange.text.floatValue;
+        }
+        if (_type.intValue == 5) {
+            _thisfield.width = textChange.text.floatValue;
+        }
+    }
+    if (k == 3) {
+        if (_type.intValue == 1) {
+            _thisLabel.height = textChange.text.floatValue;
+        }
+        if (_type.intValue == 2) {
+            _thisImg.height = textChange.text.floatValue;
+        }
+        if (_type.intValue == 3) {
+            _thisBtn.height = textChange.text.floatValue;
+        }
+        if (_type.intValue == 4) {
+            _thisView.height = textChange.text.floatValue;
+        }
+        if (_type.intValue == 5) {
+            _thisfield.height = textChange.text.floatValue;
+        }
+    }
 }
 
 - (void)createMoveView:(UIButton *)btn {
