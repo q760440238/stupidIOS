@@ -24,6 +24,7 @@
 #define UIBUTTON_TAG 0x5521
 #define UITEXTFIELD_TAG 0x66659
 #define UITEXTFIELD_FRAME_TAG 0xaac542
+#define STRETCHIMG_TAG 0x330
 
 #import "ViewController.h"
 #import "SDAutoLayout.h"
@@ -221,71 +222,97 @@
     if (k == 0) {
         if (_type.intValue == 1) {
             _thisLabel.left = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisLabel];
         }
         if (_type.intValue == 2) {
             _thisImg.left = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisImg];
         }
         if (_type.intValue == 3) {
             _thisBtn.left = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisBtn];
         }
         if (_type.intValue == 4) {
             _thisView.left = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisView];
         }
         if (_type.intValue == 5) {
             _thisfield.left = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisfield];
         }
     }
     if (k == 1) {
         if (_type.intValue == 1) {
             _thisLabel.top = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisLabel];
         }
         if (_type.intValue == 2) {
             _thisImg.top = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisImg];
         }
         if (_type.intValue == 3) {
             _thisBtn.top = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisBtn];
         }
         if (_type.intValue == 4) {
             _thisView.top = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisView];
         }
         if (_type.intValue == 5) {
             _thisfield.top = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisfield];
         }
     }
     if (k == 2) {
         if (_type.intValue == 1) {
             _thisLabel.width = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisLabel];
         }
         if (_type.intValue == 2) {
             _thisImg.width = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisImg];
         }
         if (_type.intValue == 3) {
             _thisBtn.width = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisBtn];
         }
         if (_type.intValue == 4) {
             _thisView.width = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisView];
         }
         if (_type.intValue == 5) {
             _thisfield.width = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisfield];
         }
     }
     if (k == 3) {
         if (_type.intValue == 1) {
             _thisLabel.height = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisLabel];
         }
         if (_type.intValue == 2) {
             _thisImg.height = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisImg];
         }
         if (_type.intValue == 3) {
             _thisBtn.height = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisBtn];
         }
         if (_type.intValue == 4) {
             _thisView.height = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisView];
         }
         if (_type.intValue == 5) {
             _thisfield.height = textChange.text.floatValue;
+            [self stretchImgFrameChange:_thisfield];
         }
     }
+}
+
+- (void)stretchImgFrameChange:(UIView *)view {
+    UIImageView *stretchingImage = [view viewWithTag:STRETCHIMG_TAG];
+    stretchingImage.right = view.width;
+    stretchingImage.bottom = view.height;
 }
 
 - (void)createMoveView:(UIButton *)btn {
@@ -335,6 +362,7 @@
     stretchingImage.right = moveLB.width;
     stretchingImage.bottom = moveLB.height;
     stretchingImage.userInteractionEnabled = YES;
+    stretchingImage.tag = STRETCHIMG_TAG;
     [moveLB addSubview:stretchingImage];
     
     UIPanGestureRecognizer* singlefourTap = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(touchesStrectchMoved:)];
@@ -370,6 +398,7 @@
     stretchingImage.right = moveImg.width;
     stretchingImage.bottom = moveImg.height;
     stretchingImage.userInteractionEnabled = YES;
+    stretchingImage.tag = STRETCHIMG_TAG;
     [moveImg addSubview:stretchingImage];
     
     UIPanGestureRecognizer* singlefourTap = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(touchesStrectchMoved:)];
@@ -408,6 +437,7 @@
     stretchingImage.right = movebtn.width;
     stretchingImage.bottom = movebtn.height;
     stretchingImage.userInteractionEnabled = YES;
+    stretchingImage.tag = STRETCHIMG_TAG;
     [movebtn addSubview:stretchingImage];
     
     UIPanGestureRecognizer* singlefourTap = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(touchesStrectchMoved:)];
@@ -444,6 +474,7 @@
     stretchingImage.right = moveView.width;
     stretchingImage.bottom = moveView.height;
     stretchingImage.userInteractionEnabled = YES;
+    stretchingImage.tag = STRETCHIMG_TAG;
     [moveView addSubview:stretchingImage];
     
     UIPanGestureRecognizer* singlefourTap = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(touchesStrectchMoved:)];
@@ -480,6 +511,7 @@
     stretchingImage.right = movefield.width;
     stretchingImage.bottom = movefield.height;
     stretchingImage.userInteractionEnabled = YES;
+    stretchingImage.tag = STRETCHIMG_TAG;
     [movefield addSubview:stretchingImage];
     
     UIPanGestureRecognizer* singlefourTap = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(touchesStrectchMoved:)];
