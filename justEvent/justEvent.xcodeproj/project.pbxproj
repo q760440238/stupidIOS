@@ -77,6 +77,7 @@
 		8669478523A0F404008A503C /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		8669478623A0F404008A503C /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
 		8669478723A0F404008A503C /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		A35B243A244FD7D9006F21BA /* justEvent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = justEvent.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +142,7 @@
 		86694739239F6A49008A503C /* justEvent */ = {
 			isa = PBXGroup;
 			children = (
+				A35B243A244FD7D9006F21BA /* justEvent.entitlements */,
 				8614117D23A1F94300969F77 /* DoraemonViewAlignManager.h */,
 				8614117E23A1F94300969F77 /* DoraemonViewAlignManager.m */,
 				8614116F23A1EDC500969F77 /* DoraemonViewAlignView.h */,
@@ -509,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = justEvent/justEvent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AE55A6ABZH;
 				INFOPLIST_FILE = justEvent/Info.plist;
@@ -518,6 +521,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.yq..justEvent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -526,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = justEvent/justEvent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AE55A6ABZH;
 				INFOPLIST_FILE = justEvent/Info.plist;
@@ -535,6 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.yq..justEvent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
